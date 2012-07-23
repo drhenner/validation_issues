@@ -52,4 +52,3 @@ Navigate to the admin at this url:
    localhost:3000/validation_admin/validation_issues
 
 Happy Coding.  If you have any problems feel free to ask me directly, David Henner
-
