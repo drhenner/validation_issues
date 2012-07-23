@@ -23,12 +23,13 @@ ActiveRecord::Schema.define(:version => 20120722204204) do
 
   create_table "validation_issues", :force => true do |t|
     t.string   "issue_type"
-    t.string   "form_name",                   :null => false
-    t.text     "issue_hash",                  :null => false
-    t.text     "notes",       :default => ""
+    t.string   "form_name",                     :null => false
+    t.text     "issue_hash",                    :null => false
+    t.text     "notes",         :default => ""
     t.integer  "issue_count"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.integer  "success_count"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "validation_issues", ["form_name", "issue_type"], :name => "index_validation_issues_on_form_name_and_issue_type", :unique => true

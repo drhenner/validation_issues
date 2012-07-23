@@ -31,8 +31,8 @@ module ValidationIssues
         vi.increment_issue_count!
       end
     end
-    
-    def log_successful_validation!('user_form')
+
+    def log_successful_validation!(form_name, options = {})
       vi = ValidationIssue.find_by_form_name_and_issue_type(form_name, self.class.to_s)
       vi ||= ValidationIssue.new(:form_name => form_name, :issue_type => self.class.to_s)
       vi.notes ||= ''
