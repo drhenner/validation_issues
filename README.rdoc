@@ -37,6 +37,7 @@ Now the only you need to do is this in your controller:
   def create
     user = User.new(:first_name => '', :last_name => 'Good Last Name')
     if user.save
+      user.log_successful_validation!('user_form')
       # do something
     else
       user.log_validation_issue!('user_form')
@@ -44,7 +45,7 @@ Now the only you need to do is this in your controller:
     end
   end
 
-you pass the form's name into the user.log_validation_issue! method.  This way if you have an AB test you can see the difference in the results.
+you pass the form's name into the user.log_validation_issue! & log_successful_validation! method.  This way if you have an AB test you can see the difference in the results.
 
 
 Navigate to the admin at this url:
