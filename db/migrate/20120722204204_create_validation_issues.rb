@@ -6,6 +6,7 @@ class CreateValidationIssues < ActiveRecord::Migration
       t.text :issue_hash,   :null => false
       t.text :notes,        :default => ''
       t.integer :issue_count
+      t.integer :success_count
 
       t.timestamps
     end

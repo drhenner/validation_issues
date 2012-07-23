@@ -15,6 +15,10 @@ class ValidationIssue < ActiveRecord::Base
     increment_with_sql!('issue_count')
   end
 
+  def increment_success_count!
+    increment_with_sql!('success_count')
+  end
+
   protected
 
     def increment_with_sql!(attribute, by = 1)
