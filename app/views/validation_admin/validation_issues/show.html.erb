@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2> <%= @validation_issue.issue_type %>: <%= @validation_issue.form_name %> </h2>
+
+<p>
+  <b>Issues (<%= @validation_issue.issue_count %>):</b>
+  <ul>
+    <% @validation_issue.issue_hash.each do |k, v| %>
+      <li><label> <%= k %>: </label> <%= v %></li>
+    <% end %>
+  </ul>
+
+</p>
+
+<% unless @validation_issue.notes.blank? %>
+  <p>
+    <b>Notes:</b>
+    <%= @validation_issue.notes %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', validation_admin_validation_issues_path, :class => 'button small-dark-orange-button' %>

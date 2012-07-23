@@ -1,3 +1,11 @@
 = ValidationIssues
 
 This project rocks and uses MIT-LICENSE.
+
+In your application_controller add this protected method:
+
+  def has_validation_issues_admin_privileges
+    # logic you want to make this true
+    # Typically this will work
+    current_user && current_user.admin?
+  end

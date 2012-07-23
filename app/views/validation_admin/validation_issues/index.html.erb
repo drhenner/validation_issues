@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Validation Issues </h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Form Name</th>
+    <th>Count</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @validation_issues.each do |validation_issue| %>
+  <tr>
+    <td><%= validation_issue.issue_type %></td>
+    <td><%= validation_issue.form_name %></td>
+    <td><%= validation_issue.issue_count %></td>
+    <td><%= link_to 'Show', validation_admin_validation_issue_path(validation_issue) %></td>
+    <td><%= link_to 'Reset!',
+                    validation_admin_validation_issue_path(validation_issue),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

@@ -14,4 +14,13 @@ gem "jquery-rails"
 # your gem to rubygems.org.
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'debugger'
+group :development do
+  #gem 'mysql2'#, '~> 0.3.7'
+  gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
+end
+
+group :test do
+  gem 'factory_girl_rails', '~> 3.3.0'
+  gem 'mocha'
+end
