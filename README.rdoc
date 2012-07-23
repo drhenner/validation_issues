@@ -46,5 +46,10 @@ Now the only you need to do is this in your controller:
 
 you pass the form's name into the user.log_validation_issue! method.  This way if you have an AB test you can see the difference in the results.
 
+
+Navigate to the admin at this url:
+
+   localhost:3000/validation_admin/validation_issues
+
 Happy Coding.  If you have any problems feel free to ask me directly, David Henner
 
