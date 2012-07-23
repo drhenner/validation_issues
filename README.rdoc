@@ -1,11 +1,50 @@
 = ValidationIssues
 
-This project rocks and uses MIT-LICENSE.
+The Reason for this project is simple.  People are paying attention to A/B tests and user conversion without having all the details.
 
-In your application_controller add this protected method:
+For example, Lets say you have a form that appears to have users drop out of your signup funnel.  Normally the first stab at the problem is to create an A/B test without any data.
 
-  def has_validation_issues_admin_privileges
-    # logic you want to make this true
-    # Typically this will work
-    current_user && current_user.admin?
+What if you knew 90% of the people that hit the form had a validation error on the first_name field.  I'm betting that you might not need an AB test.  If you did add an AB test you would focus on the first_name field.
+
+This problem actually happened on a live production app I was working on.  Turns out the first_name validated white space.  If a user added a space at the end of their name the validation would fail.  The user would receive a "Invalid First Name" message.  They would look at their name and be confused and eventually leave.  The solution was as simple as sanitizing the first_name before validations.  If we had this tool the problem would have never lasted for so long.
+
+= Getting started
+
+add this to your gemfile
+
+  gem 'validation_issues'
+
+In your application_controller.rb add the following to have permissions to see the admin section:
+
+  class ApplicationController < ActionController::Base
+    protected
+    def has_validation_issues_admin_privileges
+      # logic you want to make this true
+      # Typically this will work
+      current_user && current_user.admin?
+    end
   end
+
+In your model add 'acts_as_validation_issues'
+
+  class User < ActiveRecord::Base
+    # add this line
+    acts_as_validation_issues
+  end
+
+Now the only you need to do is this in your controller:
+
+  def create
+    user = User.new(:first_name => '', :last_name => 'Good Last Name')
+    if user.save
+      # do something
+    else
+      user.log_validation_issue!('user_form')
+      # do something else(like render the form again)
+    end
+  end
+
+you pass the form's name into the user.log_validation_issue! method.  This way if you have an AB test you can see the difference in the results.
+
+Happy Coding.  If you have any problems feel free to ask me directly, David Henner
+
