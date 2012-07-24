@@ -3,4 +3,4 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require_tree validation_issues
+//= require_tree ./validation_issues
