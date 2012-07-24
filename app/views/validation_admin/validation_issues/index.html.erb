@@ -2,7 +2,8 @@
 
 <h1> Validation Issues </h1>
 
-<table>
+<table class='gray_table'>
+  <thead>
   <tr>
     <th>Type</th>
     <th>Form Name</th>
@@ -11,9 +12,10 @@
     <th></th>
     <th></th>
   </tr>
+  </thead>
 
 <% @validation_issues.each do |validation_issue| %>
-  <tr>
+  <tr <%= cycle('odd', 'even')%>>
     <td><%= validation_issue.issue_type %></td>
     <td><%= validation_issue.form_name %></td>
     <td><%= validation_issue.issue_count %></td>
