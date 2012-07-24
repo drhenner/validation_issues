@@ -14,4 +14,6 @@
 #valid_header_wrapper .valid_header_content h2 {
   width:190px;
   display:inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
 }
