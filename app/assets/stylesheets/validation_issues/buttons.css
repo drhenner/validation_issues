@@ -1,17 +1,3 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-  //= require_tree  ./validation_issues
-*/
-
-/* HEADER */
-
-#valid_header_wrapper {
-  background: none repeat scroll 0 0 #222;
-  height: 36px;
-}
-
-/* BUTTONS */
 
 .button {
     display: inline-block;
