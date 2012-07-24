@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Validation Admin: <%= yield :title %>
+  </title>
+  <%#= stylesheet_link_tag 'validation_issues' %>
+
+  <%= csrf_meta_tag %>
+  <%#= javascript_include_tag :defaults %>
+
+  <%= yield :head %>
+
+</head>
+<body id='site_body' style='background-color:#f7f6f4;'>
+  <div class="bp">
+    <%= raw "<p class='flash_notice'> #{notice}</p>"  if notice %>
+    <%= raw "<p class='flash_error'>#{alert}</p>"     if alert %>
+  </div>
+  <%= render 'validation_admin_header' %>
+
+    <div id='validation_admin_wrapper' class=''>
+      <div class='validation_container'>
+        <%= yield :content_header %>
+        <%= yield %>
+      </div>
+    </div>
+
+  <div class='clearfix'></div>
+  <% if content_for?(:lower_validation_admin) %>
+    <div id='lower_validation_admin_wrapper' class='lower_wrapper'>
+      <%= yield :lower_validation_admin %>
+    </div>
+  <% end %>
+
+  <%#= render 'shared/main_footer' %>
+
+  <%= yield :bottom %>
+
+</body>
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
+  <script>
+    jQuery(window).ready(
+      function() {
+        jQuery('.flash_notice').delay(6000).slideUp( 'slow');
+        jQuery('.flash_error').delay(6000).slideUp( 'slow');
+      }
+    );
+  </script>
+
+  <%= yield :below_body %>
+</html>

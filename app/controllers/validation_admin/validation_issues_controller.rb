@@ -2,6 +2,8 @@ class ValidationAdmin::ValidationIssuesController < ApplicationController
   before_filter :redirect_if_no_privileges
   # has_validation_issues_admin_privileges
 
+  layout 'validation_admin_layout'
+
   # GET /validation_issues
   # GET /validation_issues.json
   def index
