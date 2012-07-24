@@ -27,5 +27,10 @@
                       method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
+  <% if  @validation_issues.empty? %>
+    <tr <%= cycle('odd', 'even')%>>
+      <td colspan='6'>Sorry no data collected yet</td>
+    </tr>
+  <% end %>
   </table>
 </div>
