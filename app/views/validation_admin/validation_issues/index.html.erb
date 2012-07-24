@@ -6,7 +6,8 @@
   <tr>
     <th>Type</th>
     <th>Form Name</th>
-    <th>Count</th>
+    <th># of Issues</th>
+    <th>Total Count</th>
     <th></th>
     <th></th>
   </tr>
@@ -16,6 +17,7 @@
     <td><%= validation_issue.issue_type %></td>
     <td><%= validation_issue.form_name %></td>
     <td><%= validation_issue.issue_count %></td>
+    <td><%= validation_issue.total_count %></td>
     <td><%= link_to 'Show', validation_admin_validation_issue_path(validation_issue) %></td>
     <td><%= link_to 'Reset!',
                     validation_admin_validation_issue_path(validation_issue),

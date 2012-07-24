@@ -1,5 +1,5 @@
 class ValidationIssue < ActiveRecord::Base
-  attr_accessible :form_name, :issue_count, :issue_hash, :issue_type, :notes
+  attr_accessible :form_name, :issue_count, :issue_hash, :issue_type, :notes, :success_count
   serialize :issue_hash, Hash
 
   validates :form_name,  :presence => true, :uniqueness => true
@@ -17,6 +17,10 @@ class ValidationIssue < ActiveRecord::Base
 
   def increment_success_count!
     increment_with_sql!('success_count')
+  end
+
+  def total_count
+    success_count + issue_count
   end
 
   protected
