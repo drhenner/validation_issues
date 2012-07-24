@@ -2,4 +2,7 @@
   color: #333;
   margin:0;
 }
-#validation_admin_body.validation_container {width:960px;margin:0 auto;}
+#validation_admin_body .validation_container {
+  width:960px;
+  margin:0 auto;
+}

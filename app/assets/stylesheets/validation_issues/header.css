@@ -6,4 +6,7 @@
   padding-top: 8px;
 }
 
-#valid_header_wrapper.valid_header_content {width:960px;margin:0 auto;}
+#valid_header_wrapper .valid_header_content {
+  width:960px;
+  margin:0 auto;
+}
