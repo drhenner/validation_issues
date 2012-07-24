@@ -7,7 +7,7 @@
   <%= stylesheet_link_tag 'validation_issues' %>
 
   <%= csrf_meta_tag %>
-  <%#= javascript_include_tag :defaults %>
+
 
   <%= yield :head %>
 
@@ -38,8 +38,8 @@
   <%= yield :bottom %>
 
 </body>
-  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
+  <%= javascript_include_tag 'validation_issues.js' %>
+
   <script>
     jQuery(window).ready(
       function() {

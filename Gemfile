@@ -14,7 +14,7 @@ gem "jquery-rails"
 # your gem to rubygems.org.
 
 # To use debugger
-gem 'debugger'
+# gem 'debugger'
 group :development do
   #gem 'mysql2'#, '~> 0.3.7'
   gem "nifty-generators", :git => 'git://github.com/drhenner/nifty-generators.git'
