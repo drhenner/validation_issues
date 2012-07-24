@@ -1,0 +1,4 @@
+#validation_admin_body {
+  margin:0;
+  &.validation_container {width:960px;margin:0 auto;}
+}
