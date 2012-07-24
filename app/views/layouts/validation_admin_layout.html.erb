@@ -12,12 +12,12 @@
   <%= yield :head %>
 
 </head>
-<body id='site_body' style='background-color:#f7f6f4;'>
+<body id='validation_admin_body' style='background-color:#f7f6f4;'>
   <div class="bp">
     <%= raw "<p class='flash_notice'> #{notice}</p>"  if notice %>
     <%= raw "<p class='flash_error'>#{alert}</p>"     if alert %>
   </div>
-  <%= render 'validation_admin_header' %>
+  <%= render '/validation_admin/validation_admin_header' %>
 
     <div id='validation_admin_wrapper' class=''>
       <div class='validation_container'>
