@@ -4,5 +4,6 @@
   height: 36px;
   color: #F9F9F9;
   padding-top: 8px;
+  &valid_header_content {width:960px;margin:0 auto;}
 }
 
