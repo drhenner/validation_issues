@@ -2,15 +2,49 @@
 
 <h2> <%= @validation_issue.issue_type %>: <%= @validation_issue.form_name %> </h2>
 
-<p>
-  <b>Issues (<%= @validation_issue.issue_count %>):</b>
-  <ul>
-    <% @validation_issue.issue_hash.each do |k, v| %>
-      <li><label> <%= k %>: </label> <%= v %></li>
-    <% end %>
-  </ul>
+<div class='gray_table'>
+  <table >
+    <thead>
+    <tr >
+      <th class='column1_header'>Type</th>
+      <th>Form Name</th>
+      <th># of Issues</th>
+      <th>Total Count</th>
+      <th></th>
+      <th></th>
+    </tr>
 
-</p>
+    </thead>
+    <tr >
+      <td><%= @validation_issue.issue_type %></td>
+      <td><%= @validation_issue.form_name %></td>
+      <td><%= @validation_issue.issue_count %></td>
+      <td><%= @validation_issue.total_count %></td>
+      <td><%= link_to 'Show', validation_admin_validation_issue_path(@validation_issue) %></td>
+      <td><%= link_to 'Reset!',
+                      validation_admin_validation_issue_path(@validation_issue),
+                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% if  @validation_issue.issue_hash.empty? %>
+      <tr <%= cycle('odd', 'even')%>>
+        <td colspan='6'>Sorry no data collected yet</td>
+      </tr>
+    <% else %>
+      <tr <%= cycle('odd', 'even')%>>
+        <td colspan='2'>Field</td>
+        <td colspan='4'># of Issues</td>
+      </tr>
+    <% end %>
+  <% @validation_issue.issue_hash.each do |k, v| %>
+    <tr <%= cycle('odd', 'even')%>>
+      <td colspan='2'><%= k %></td>
+      <td colspan='4'><%= v %></td>
+    </tr>
+  <% end %>
+
+  </table>
+</div>
+
 
 <% unless @validation_issue.notes.blank? %>
   <p>
@@ -19,4 +53,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', validation_admin_validation_issues_path, :class => 'button small-dark-orange-button' %>
+<%= link_to 'Back', validation_admin_validation_issues_path, :class => 'button dark-orange-button' %>
