@@ -15,6 +15,7 @@ class ValidationIssueTest < ActiveSupport::TestCase
     end
     validation_issue.clear_data!
     assert_equal validation_issue.issue_count, 0
+    assert_equal validation_issue.success_count, 0
     # puts @validation_issue.issue_hash.size
     validation_issue.issue_hash.each do |key, num|
       assert_equal 0, num

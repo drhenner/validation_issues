@@ -5,7 +5,8 @@ class ValidationIssue < ActiveRecord::Base
   validates :form_name,  :presence => true, :uniqueness => true
 
   def clear_data!
-    self.issue_count = 0
+    self.issue_count    = 0
+    self.success_count  = 0
     self.issue_hash  = {}
     self.notes = ''
     self.save!
