@@ -27,13 +27,15 @@
     </tr>
     <% if  @validation_issue.issue_hash.empty? %>
       <tr <%= cycle('odd', 'even')%>>
-        <td colspan='6'>Sorry no data collected yet</td>
+        <td colspan='6'>Sorry no Issues Yet</td>
       </tr>
     <% else %>
-      <tr <%= cycle('odd', 'even')%>>
-        <td colspan='2'>Field</td>
-        <td colspan='4'># of Issues</td>
-      </tr>
+      <thead>
+        <tr>
+          <th colspan='2'  class='column1_header'>Field</th>
+          <th colspan='4'># of Issues</th>
+        </tr>
+      </thead>
     <% end %>
   <% @validation_issue.issue_hash.each do |k, v| %>
     <tr <%= cycle('odd', 'even')%>>
