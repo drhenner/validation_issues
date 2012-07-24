@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20120722204204) do
     t.string   "form_name",                     :null => false
     t.text     "issue_hash",                    :null => false
     t.text     "notes",         :default => ""
-    t.integer  "issue_count"
-    t.integer  "success_count"
+    t.integer  "issue_count",   :default => 0
+    t.integer  "success_count", :default => 0
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end

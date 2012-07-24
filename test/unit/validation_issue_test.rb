@@ -20,4 +20,14 @@ class ValidationIssueTest < ActiveSupport::TestCase
       assert_equal 0, num
     end
   end
+
+  test '.total_count' do
+    validation_issue = FactoryGirl.create(:validation_issue, :form_name => 'my_super_form',
+                                                            :issue_count => 5,
+                                                            :success_count => 13,
+                                                            :issue_hash => {'name' => 2,
+                                                                            'password' => 3})
+
+    assert_equal validation_issue.total_count, 18
+  end
 end
