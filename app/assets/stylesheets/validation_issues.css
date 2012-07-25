@@ -1,5 +1,33 @@
 /*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
+  MAIN
 */
-//= require_tree  ./validation_issues
+
+/*
+  BUTTONS
+*/
+
+/*
+  TABLES
+*/
+
+/*
+  HEADER
+*/
+#valid_header_wrapper {
+  background: none repeat scroll 0 0 #222;
+  height: 36px;
+  color: #F9F9F9;
+  padding-top: 8px;
+}
+
+#valid_header_wrapper .valid_header_content {
+  width:960px;
+  margin:0 auto;
+}
+
+#valid_header_wrapper .valid_header_content h2 {
+  width:190px;
+  display:inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+}
