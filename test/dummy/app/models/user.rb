@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   validates :first_name,  :presence => true
   validates :last_name,   :presence => true
-  validates :nick_name,   :presence     => false,
-                          :format       => { :with => /w+/ },
-                          :allow_blank  => true
+  validates :nick_name,   :presence     => false#,
+                          #:format       => { :with => /w+/ },
+                          #:allow_blank  => true
 end

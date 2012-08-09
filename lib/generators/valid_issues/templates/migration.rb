@@ -8,6 +8,7 @@ class CreateValidationIssues < ActiveRecord::Migration
       #t.text    :issued_by_ids
       t.text    :notes
       t.integer :issue_count
+      t.integer :success_count
 
       t.timestamps
     end
