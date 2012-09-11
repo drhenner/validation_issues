@@ -37,7 +37,7 @@ module ValidationIssues
       vi ||= ValidationIssue.new(:form_name => form_name, :issue_type => self.class.to_s)
       vi.notes ||= ''
       vi.issue_count ||= 0
-      vi.issue_hash ||= {}
+      vi.issue_hash ||= {:no_issues => ''}
       vi.save
       vi.increment_success_count!
     end
