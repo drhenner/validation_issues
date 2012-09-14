@@ -21,7 +21,7 @@ class ValidationIssue < ActiveRecord::Base
   end
 
   def total_count
-    success_count + issue_count
+    (success_count || 0) + (issue_count || 0)
   end
 
   protected
