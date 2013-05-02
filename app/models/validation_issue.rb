@@ -1,6 +1,6 @@
 class ValidationIssue < ActiveRecord::Base
   attr_accessible :form_name, :issue_count, :issue_hash, :issue_type, :notes, :success_count
-  serialize :issue_hash, HashWithIndifferentAccess
+  serialize :issue_hash, Hash
 
   validates :form_name,  :presence => true, :uniqueness => true
 
