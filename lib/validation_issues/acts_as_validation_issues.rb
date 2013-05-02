@@ -18,7 +18,7 @@ module ValidationIssues
         vi ||= ValidationIssue.new(:form_name => form_name, :issue_type => self.class.to_s)
 
         self.errors.map {|k,v| k }.uniq.each do |error_field|
-          vi.issue_hash[error_field] ||= 0
+          vi.issue_hash[error_field] = 0 unless vi.issue_hash[error_field]
           vi.issue_hash[error_field] = vi.issue_hash[error_field] + 1
         end
 
