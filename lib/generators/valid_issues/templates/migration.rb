@@ -7,14 +7,13 @@ class CreateValidationIssues < ActiveRecord::Migration
       t.text    :issue_hash,  :null => false
       #t.text    :issued_by_ids
       t.text    :notes
-      t.integer :issue_count
-      t.integer :success_count
+      t.integer :issue_count,   default: 0
+      t.integer :success_count, default: 0
 
       t.timestamps
     end
-    add_index :validation_issues, :form_name
+    add_index :validation_issues, [:form_name, :issue_type], :unique => true
     add_index :validation_issues, :issue_type
-
   end
 
   def self.down

@@ -1,7 +1,7 @@
 class CreateValidationIssues < ActiveRecord::Migration
   def change
     create_table :validation_issues do |t|
-      t.string :issue_type
+      t.string :issue_type, :null => false
       t.string :form_name,  :null => false
       t.text :issue_hash,   :null => false
       t.text :notes,        :default => ''
@@ -10,8 +10,7 @@ class CreateValidationIssues < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :validation_issues, :form_name# , :length => 10
-    add_index :validation_issues, :issue_type
     add_index :validation_issues, [:form_name, :issue_type], :unique => true
+    add_index :validation_issues, :issue_type
   end
 end
