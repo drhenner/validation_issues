@@ -15,7 +15,7 @@ module ValidationIssues
     def log_validation_issue!(form_name, options = {})
       if self.errors
         vi = ValidationIssue.find_by_form_name_and_issue_type(form_name, self.class.to_s)
-        vi ||= ValidationIssue.new(:form_name => form_name, :issue_type => self.class.to_s)
+        vi ||= ValidationIssue.new( form_name: form_name, issue_type: self.class.to_s)
 
         self.errors.map {|k,v| k }.uniq.each do |error_field|
           vi.issue_hash = {} if vi.issue_hash.blank?
@@ -35,10 +35,10 @@ module ValidationIssues
 
     def log_successful_validation!(form_name, options = {})
       vi = ValidationIssue.find_by_form_name_and_issue_type(form_name, self.class.to_s)
-      vi ||= ValidationIssue.new(:form_name => form_name, :issue_type => self.class.to_s)
+      vi ||= ValidationIssue.new( form_name: form_name, issue_type: self.class.to_s)
       vi.notes ||= ''
       vi.issue_count ||= 0
-      vi.issue_hash ||= {:no_issues => ''}
+      vi.issue_hash ||= { no_issues: '' }
       vi.save
       vi.increment_success_count!
     end

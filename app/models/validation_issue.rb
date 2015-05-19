@@ -1,14 +1,13 @@
 class ValidationIssue < ActiveRecord::Base
-  attr_accessible :form_name, :issue_count, :issue_hash, :issue_type, :notes, :success_count
   serialize :issue_hash, Hash
 
-  validates :form_name,  :presence => true, :uniqueness => true
+  validates :form_name,  presence: true, uniqueness: true
 
   def clear_data!
     self.issue_count    = 0
     self.success_count  = 0
-    self.issue_hash  = {}
-    self.notes = ''
+    self.issue_hash     = {}
+    self.notes          = ''
     self.save!
   end
 
